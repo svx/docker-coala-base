@@ -16,6 +16,7 @@ RUN zypper addrepo -f \
 RUN zypper --no-gpg-checks --non-interactive dist-upgrade && \
   zypper --non-interactive install -t pattern devel_basis && \
   zypper --non-interactive install \
+  bzr \
   cppcheck \
   curl \
   espeak \
@@ -25,6 +26,7 @@ RUN zypper --no-gpg-checks --non-interactive dist-upgrade && \
   git \
   go \
   gsl \
+  mercurial \
   hlint \
   indent \
   java \
@@ -53,6 +55,7 @@ RUN zypper --no-gpg-checks --non-interactive dist-upgrade && \
   ruby \
   ruby-devel \
   ShellCheck \
+  subversion \
   sudo \
   suitesparse-devel \
   tar \
@@ -120,7 +123,7 @@ RUN source /etc/profile.d/go.sh \
 # ENV PATH=$PATH:/home/opam/infer-linux64-v0.9.0/infer/bin
 
 # Julia setup
-# RUN 'julia -e "Pkg.add(\"Lint\")"'
+# RUN ["julia", "-e", "\\"Pkg.add(\\\\"Lint\\\\")\\""]
 
 # Lua commands
 RUN luarocks install luacheck
